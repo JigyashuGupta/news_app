@@ -4,13 +4,16 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Upon launching the app, the user is presented with two screens:
+1. Where they see current news.
+2. Where they can select based on their search keywords, preferred country and topic of interest. 
 
-A few resources to get you started if this is your first Flutter project:
+The app then fetches the latest news articles based on the user's selection and displays them in a scrollable list.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Each news article is displayed with its headline, a short summary, and an image if available. Tapping on a news article takes the user to a detailed view of the article where they can read the full article.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The app also includes a search feature that allows users to search for news articles based on keywords. Users can save articles to read later or share them with their friends and family.
+
+The app is designed with a user-friendly interface that allows for easy navigation and customization. Users can personalize their news feed by selecting the countries and topics that interest them the most.
+
+Overall, this Flutter app is a convenient way for users to stay up-to-date with the latest news from around the world.
