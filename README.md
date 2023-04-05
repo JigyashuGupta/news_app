@@ -10,7 +10,7 @@ Upon launching the app, the user is presented with two screens:
 
 The app then fetches the latest news articles based on the user's selection and displays them in a scrollable list.
 
-Each news article is displayed with its headline, a short summary, and an image if available. Tapping on a news article takes the user to a detailed view of the article where they can read the full article.
+Each news article is displayed with its headline, a short summary, and an image if available. Tapping on a news article takes the user to a detailed view of the article where they can read the full article.The reader can click on the "Read More" button to visit the website where the article originated from.
 
 The app also includes a search feature that allows users to search for news articles based on keywords. Users can save articles to read later or share them with their friends and family.
 
