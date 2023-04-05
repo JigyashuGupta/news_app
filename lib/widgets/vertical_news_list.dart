@@ -32,67 +32,75 @@ class VerticalNewsList extends StatelessWidget {
               shrinkWrap: true,
               itemCount: articles.length,
               itemBuilder: (_, i) {
-                return Padding(
-                  padding: const EdgeInsets.only(top: 10, bottom: 10),
-                  child: InkWell(
-                    onTap: () => Navigator.push(
-                      context,
-                      CupertinoPageRoute(
-                        builder: (context) => NewsPage(news: articles[i]),
-                      ),
-                    ),
-                    child: ResponsiveChildren(
-                      rowAlignment: MainAxisAlignment.start,
-                      size: 400,
-                      children: [
-                        Container(
-                          height: 100,
-                          width: 100,
-                          decoration: BoxDecoration(
-                              border: Border.all(color: whiteColor),
-                              borderRadius: BorderRadius.circular(20),
-                              image: DecorationImage(
-                                  image: NetworkImage(
-                                    articles[i].urlToImage ??
-                                        'https://icon-library.com/images/not-found-icon/not-found-icon-28.jpg',
-                                  ),
-                                  fit: BoxFit.cover) //<-- SEE HERE
-                              ),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.only(left: 10),
-                          width:
-                              min(MediaQuery.of(context).size.width * 0.6, 300),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text(
-                                articles[i].title ?? 'Title Not Found',
-                                style: headlineText,
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              SizedBox(
-                                child: Row(
-                                  children: [
-                                    const Icon(
-                                      Icons.access_time_outlined,
-                                      size: 12,
-                                    ),
-                                    Text(
-                                      articles[i].publishedAt ??
-                                          'Date unknown',
-                                      style: subText,
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
+                return Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(width: 2),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 5),
+                  child: Column(
+                    children: [
+                      InkWell(
+                        onTap: () => Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                            builder: (context) => NewsPage(news: articles[i]),
                           ),
                         ),
-                      ],
-                    ),
+                        child: ResponsiveChildren(
+                          rowAlignment: MainAxisAlignment.start,
+                          size: 400,
+                          children: [
+                            Container(
+                              height: 100,
+                              width: 100,
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: whiteColor),
+                                  borderRadius: BorderRadius.circular(20),
+                                  image: DecorationImage(
+                                      image: NetworkImage(
+                                        articles[i].urlToImage ??
+                                            'https://icon-library.com/images/not-found-icon/not-found-icon-28.jpg',
+                                      ),
+                                      fit: BoxFit.cover) //<-- SEE HERE
+                                  ),
+                            ),
+                            Container(
+                              padding: const EdgeInsets.only(left: 10),
+                              width:
+                                  min(MediaQuery.of(context).size.width * 0.6, 300),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    articles[i].title ?? 'Title Not Found',
+                                    style: headlineText,
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                  SizedBox(
+                                    child: Row(
+                                      children: [
+                                        const Icon(
+                                          Icons.access_time_outlined,
+                                          size: 12,
+                                        ),
+                                        Text(
+                                          articles[i].publishedAt ??
+                                              'Date unknown',
+                                          style: subText,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 );
               },

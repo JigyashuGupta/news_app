@@ -14,7 +14,6 @@ class ApiService {
   Future<List<Article>> getArticle(
       String? country, String? category, String? query) async {
     Map<String, String> queryParameters = {
-
       'apiKey': apiKey,
     };
     if(country != null) {
@@ -29,6 +28,9 @@ class ApiService {
     // print(queryParameters.toString());
     List<Article> articles = <Article>[];
     try {
+      if(queryParameters.length == 1){
+        return articles;
+      }
       final uri = Uri.https(endPoint, '/v2/top-headlines', queryParameters);
       final response = await client.get(uri);
       Map<String, dynamic> json = jsonDecode(response.body);
