@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/constants/constants.dart';
 import 'package:news_app/models/article_model.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class NewsPage extends StatelessWidget {
   final Article news;
@@ -80,7 +81,7 @@ class NewsPage extends StatelessWidget {
                 SizedBox(
                   height: 50,
                   child: ListView(
-                    physics: BouncingScrollPhysics(),
+                    physics: const BouncingScrollPhysics(),
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
                     children: [
@@ -140,6 +141,60 @@ class NewsPage extends StatelessWidget {
                   child: Text(news.description?? 'Description not found', style: titleText.copyWith(color: primaryColor), textAlign: TextAlign.justify,),
                 ),
                 Text(news.content?? 'Content not available',style: contentText,),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: TextButton(
+                    onPressed: () async {
+                      try{
+                        if(news.url is String){
+                          Uri? url = Uri.tryParse(news.url!);
+                          if(url is Uri){
+                            if (await launchUrl(url)) {
+                              await launchUrl(url);
+                            } else {
+                              throw 'Could not launch $url';
+                            }
+                          }
+                          else{
+                            throw Exception('Link to the Article not found');
+                          }
+                        }
+                        else{
+                          throw Exception('Link to the Article not found');
+                        }
+
+                      }
+                      catch(e){
+                        SnackBar bar = SnackBar(
+                          content: Text(
+                            e.toString(),
+                            style: headlineText.copyWith(color: whiteColor),
+                            textAlign: TextAlign.center,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        );
+                        ScaffoldMessenger.of(context).showSnackBar(bar);
+                      }
+                    }
+                    ,
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(primaryColor),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                        ),
+                      ),
+                    ),
+                    child: Container(
+                      margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+                      child:  Text(
+                        'Read More',
+                        style: headlineText.copyWith(color: whiteColor),
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
