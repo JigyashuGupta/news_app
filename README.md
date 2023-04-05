@@ -20,8 +20,8 @@ Overall, this Flutter app is a convenient way for users to stay up-to-date with 
 
 ## Some screenshots of the working app:
 
-<p float="left">
-  <img src="screenshots/homepage_screenshot.jpg" width="200" />
-  <img src="/screenshots/search_results.jpg" width="200" /> 
-  <img src="/screenshots/country_results.jpg" width="200" />
+<p float="center">
+  <img src="/screenshots/homepage_screenshot.jpg" height="600" width="300" />
+  <img src="/screenshots/search_results.jpg" height="600" width="300" /> 
+  <img src="/screenshots/country_results.jpg" height="600" width="300" />
 </p>
