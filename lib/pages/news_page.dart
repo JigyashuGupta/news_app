@@ -57,8 +57,8 @@ class NewsPage extends StatelessWidget {
                         ),
                       ),
                       child: Text(
-                        ' News of the day ',
-                        style: subText.copyWith(color: whiteColor),
+                        '${news.source.name}',
+                        style: headlineText.copyWith(color: whiteColor),
                       ),
                     ),
                     Text(
@@ -83,69 +83,51 @@ class NewsPage extends StatelessWidget {
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
                     children: [
-                      TextButton(
-                        onPressed: () {},
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(primaryColor),
-                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(25.0),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: TextButton(
+                          onPressed: () {},
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(primaryColor),
+                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25.0),
+                              ),
                             ),
                           ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
-                          child: Text(
-                            news.author?? 'Unknown',
-                            style: const TextStyle(color: whiteColor),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                            child: Text(
+                              'Author: ${news.author?? 'Unknown'}',
+                              style: const TextStyle(color: whiteColor),
+                            ),
                           ),
                         ),
                       ),
-                      TextButton(
-                        onPressed: () {},
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(Colors.grey.shade300),
-                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(25.0),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: TextButton(
+                          onPressed: () {},
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(Colors.grey.shade300),
+                            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25.0),
+                              ),
                             ),
                           ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 7),
-                          child: Row(
-                            children: [
-                              Icon(Icons.access_time_rounded, color: Colors.grey.shade700, size: 15,),
-                              const SizedBox(width: 10,),
-                              Text(
-                                news.publishedAt?? 'Unknown',
-                                style: const TextStyle(color: primaryColor),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(Colors.grey.shade300),
-                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(25.0),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 7),
+                            child: Row(
+                              children: [
+                                Icon(Icons.access_time_rounded, color: Colors.grey.shade700, size: 15,),
+                                const SizedBox(width: 10,),
+                                Text(
+                                  news.publishedAt?? 'Unknown',
+                                  style: const TextStyle(color: primaryColor),
+                                ),
+                              ],
                             ),
-                          ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 7),
-                          child: Row(
-                            children: [
-                              Icon(Icons.remove_red_eye_outlined, color: Colors.grey.shade700, size: 15,),
-                              const SizedBox(width: 10,),
-                              const Text(
-                                '376',
-                                style: const TextStyle(color: primaryColor),
-                              ),
-                            ],
                           ),
                         ),
                       ),

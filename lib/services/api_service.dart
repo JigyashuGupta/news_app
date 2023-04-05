@@ -12,27 +12,31 @@ class ApiService {
   ApiService({required this.context});
 
   Future<List<Article>> getArticle(
-      String country, String? category, String? query) async {
+      String? country, String? category, String? query) async {
     Map<String, String> queryParameters = {
-      'country': country,
+
       'apiKey': apiKey,
     };
+    if(country != null) {
+      queryParameters['country'] = country;
+    }
     if (query != null) {
-      queryParameters['query'] = query;
+      queryParameters['q'] = query;
     }
     if (category != null) {
       queryParameters['category'] = category;
     }
-    List<Article> articles = [];
+    // print(queryParameters.toString());
+    List<Article> articles = <Article>[];
     try {
       final uri = Uri.https(endPoint, '/v2/top-headlines', queryParameters);
       final response = await client.get(uri);
       Map<String, dynamic> json = jsonDecode(response.body);
       if (json['status'] != 'ok') {
-        throw Exception('Could not fetch API');
+        throw Exception('Api Status: ${json['message']}');
       }
       List<dynamic> body = json['articles'];
-      // print(converted to )
+      // print(body.length);
       articles = body.map((dynamic item) => Article.fromJson(item)).toList();
       return articles;
     } catch (e) {
@@ -46,6 +50,7 @@ class ApiService {
         ),
       );
       ScaffoldMessenger.of(context).showSnackBar(bar);
+      // print(e.toString());
       return articles;
     }
   }

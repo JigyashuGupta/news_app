@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:news_app/constants/constants.dart';
 import 'package:news_app/pages/news_page.dart';
 import 'package:news_app/services/api_service.dart';
@@ -10,7 +11,7 @@ import 'package:news_app/widgets/responsive_children.dart';
 import '../models/article_model.dart';
 
 class VerticalNewsList extends StatelessWidget {
-  final String country, category; String? query;
+  final String? country, query, category;
   VerticalNewsList({
     required this.category,
     required this.query,
@@ -27,7 +28,7 @@ class VerticalNewsList extends StatelessWidget {
             List<Article> articles = snapshot.data!;
             return ListView.builder(
               controller: ScrollController(),
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               shrinkWrap: true,
               itemCount: articles.length,
               itemBuilder: (_, i) {
@@ -53,7 +54,7 @@ class VerticalNewsList extends StatelessWidget {
                               image: DecorationImage(
                                   image: NetworkImage(
                                     articles[i].urlToImage ??
-                                        'https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+                                        'https://icon-library.com/images/not-found-icon/not-found-icon-28.jpg',
                                   ),
                                   fit: BoxFit.cover) //<-- SEE HERE
                               ),
@@ -74,7 +75,7 @@ class VerticalNewsList extends StatelessWidget {
                               SizedBox(
                                 child: Row(
                                   children: [
-                                    Icon(
+                                    const Icon(
                                       Icons.access_time_outlined,
                                       size: 12,
                                     ),
@@ -98,7 +99,7 @@ class VerticalNewsList extends StatelessWidget {
             );
           } else {
             return Center(
-              child: CircularProgressIndicator(),
+              child: LoadingAnimationWidget.twoRotatingArc(color: primaryColor, size: MediaQuery.of(context).size.height/20),
             );
           }
         });
