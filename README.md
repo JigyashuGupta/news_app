@@ -20,4 +20,8 @@ Overall, this Flutter app is a convenient way for users to stay up-to-date with 
 
 ## Some screenshots of the working app:
 
-![Homepage Screenshot](screenshots/homepage_screenshot.jpg) | ![Searching Screenshot](screenshots/search_results.jpg) | ![Countrywise ScreenShot](screenshots/country_results.jpg)
+<p float="left">
+  <img src="screenshots/homepage_screenshot.jpg" width="100" />
+  <img src="/screenshots/search_results.jpg" width="100" /> 
+  <img src="/screenshots/country_results.jpg" width="100" />
+</p>
