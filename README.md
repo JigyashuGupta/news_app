@@ -17,3 +17,7 @@ The app also includes a search feature that allows users to search for news arti
 The app is designed with a user-friendly interface that allows for easy navigation and customization. Users can personalize their news feed by selecting the countries and topics that interest them the most.
 
 Overall, this Flutter app is a convenient way for users to stay up-to-date with the latest news from around the world.
+
+## Some screenshots of the working app:
+
+![Homepage Screenshot](screenshots/homepage_screenshot.jpg) | ![Searching Screenshot](screenshots/search_results.jpg) | ![Countrywise ScreenShot](screenshots/country_results.jpg)

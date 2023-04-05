@@ -18,7 +18,8 @@ class NewsPage extends StatelessWidget {
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: NetworkImage(
-                  news.urlToImage?? 'https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+                  news.urlToImage??
+                      'https://icon-library.com/images/not-found-icon/not-found-icon-28.jpg',
                 ),
                 fit: BoxFit.cover,
                 colorFilter:
